@@ -1,5 +1,0 @@
-[dotenv@17.3.1] injecting env (6) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
---- RELATIONSHIPS ---
-recipes.user_id -> public.profiles.id (recipes_user_id_fkey)
-comments.recipe_id -> public.recipes.id (comments_recipe_id_fkey)
-favorites.recipe_id -> public.recipes.id (favorites_recipe_id_fkey)
