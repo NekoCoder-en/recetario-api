@@ -3,7 +3,7 @@
 Esta guía explica detalladamente cómo interactuar con los diferentes endpoints de la API.
 
 ## Base URL
-`http://localhost:3000/api](https://recetario-api-olive.vercel.app/api`
+`https://recetario-api-olive.vercel.app/api`
 
 ---
 
