@@ -1,4 +1,4 @@
-const { supabase } = require('../config/supabase');
+const { supabase, supabaseAdmin } = require('../config/supabase');
 const jwt = require('jsonwebtoken');
 
 const register = async (req, res) => {
@@ -19,15 +19,20 @@ const register = async (req, res) => {
 
     if (data.user) {
       // 2. Create profile in the profiles table
-      const { error: profileError } = await supabase
+      // Use supabaseAdmin to bypass RLS during registration
+      const { error: profileError } = await supabaseAdmin
         .from('profiles')
         .insert([{ id: data.user.id, username }]);
 
-      if (profileError) throw profileError;
+      if (profileError) {
+        console.error('Profile creation error:', profileError);
+        throw profileError;
+      }
     }
 
     res.status(201).json({ message: 'User registered successfully', user: data.user });
   } catch (error) {
+    console.error('Registration error details:', error);
     res.status(400).json({ error: error.message });
   }
 };
