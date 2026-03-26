@@ -1,0 +1,7 @@
+.env
+node_modules
+schema_debug.txt
+*.log
+
+.env*
+.DS_Store
